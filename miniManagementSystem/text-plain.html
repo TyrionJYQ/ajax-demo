@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>staff system management</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+</head>
+<body>
+<div class="wrapper">
+	<div class="memberqueryWrapper">
+		<h3>员工查询</h3>
+		<label for="keyword">员工编号	</label>
+		<input type="text" name="staffNumber"
+						   id="keyword" 
+						   placeholder="请输入三位数员工编号" />
+	    <br/>
+		<button id="search">查询</button>
+		<p id="searchResult"></p>
+	</div>
+	<hr/>
+	<div class="memberRegisterWrapper">
+		<h3>员工创建</h3>
+		<label for="staffName">员工姓名</label>
+		<input type="text" name="" id="staffName" 
+						   placeholder="请输入员工姓名">
+		<br/>
+		<label for="staffNumber">员工编号</label>
+		<input type="text" name="" id="staffNumber"
+						   placeholder="请输入员工编号">
+		<br/>
+		<label for="staffJob">员工职位</label>
+		<input type="text" name="" id="staffJob"
+						   placeholder="请输入员工职位">
+		<br/>
+		<label for="staffSex">员工性别</label>
+		<select id="staffSex">
+			<option >男</option>
+			<option >女</option>
+		</select>
+		<br/>
+		<button id="save">登记</button>
+		<p id="createResult"></p>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	let _$ = function(id) {
+		return document.getElementById(id);
+	}
+	function searchStaff() {
+		/**
+		*@AJAX请求 method = 'GET'
+		*/
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET','server1.php?number='+_$('keyword').value);
+		xhr.send();
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState === 4) {
+					if(xhr.status === 200) {
+						_$('searchResult').innerHTML = xhr.responseText;
+					}else {
+						alert('发生错误' + xhr.status);
+					}
+			}
+		}
+				
+		
+
+	}
+
+
+	function saveStaff() {
+		/**
+		*ajax请求,method = 'POST'
+		*/
+		let xhr = new XMLHttpRequest();
+		xhr.open('POST','server.php');
+		xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+		let data = `name=${_$('staffName').value}&number=${_$('staffNumber').value}&sex=${_$('staffSex').value}&job=${_$('staffJob').value}`;
+		xhr.send(data);
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState === 4) {
+					if(xhr.status === 200) {
+						_$('createResult').innerHTML = xhr.responseText;
+					}else {
+						alert('发生错误' + xhr.status);
+					}
+			}
+		}
+	}
+	_$('search').onclick = searchStaff;
+	_$('save').onclick = saveStaff;
+
+
+</script>
+
+</html>

@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+	/*color: white;*/
+}
+.wrapper {
+	width:280px;
+	background: #5800ff6b;
+	margin: 0 auto ;
+	margin-top: 50px;
+	border: 1px solid green;
+	
+}
+.memberqueryWrapper,.memberRegisterWrapper {
+	width: 260px;
+	/*background: red;*/
+	margin: 0 auto;
+	text-align: center;
+}
+.wrapper h3 {
+	margin: 20px 0;
+}
+.wrapper input,select {
+	margin: 10px;
+}
+button {
+
+	padding: 4px 8px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-radius: 4px;
+}
