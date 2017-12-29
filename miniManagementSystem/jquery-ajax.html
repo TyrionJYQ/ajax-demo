@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>staff system management</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery.min.js"></script>
+	
+</head>
+<body>
+<div class="wrapper">
+	<div class="memberqueryWrapper">
+		<h3>员工查询</h3>
+		<label for="keyword">员工编号	</label>
+		<input type="text" name="staffNumber"
+						   id="keyword" 
+						   placeholder="请输入三位数员工编号" />
+	    <br/>
+		<button id="search">查询</button>
+		<p id="searchResult"></p>
+	</div>
+	<hr/>
+	<div class="memberRegisterWrapper">
+		<h3>员工创建</h3>
+		<label for="staffName">员工姓名</label>
+		<input type="text" name="" id="staffName" 
+						   placeholder="请输入员工姓名">
+		<br/>
+		<label for="staffNumber">员工编号</label>
+		<input type="text" name="" id="staffNumber"
+						   placeholder="请输入员工编号">
+		<br/>
+		<label for="staffJob">员工职位</label>
+		<input type="text" name="" id="staffJob"
+						   placeholder="请输入员工职位">
+		<br/>
+		<label for="staffSex">员工性别</label>
+		<select id="staffSex">
+			<option >男</option>
+			<option >女</option>
+		</select>
+		<br/>
+		<button id="save">登记</button>
+		<p id="createResult"></p>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+console.log($('#search'));
+	/**
+	*@ check staff method 'GET'
+	*/
+	$(document).ready(function() {
+		$('#search').click(function() {
+			$.ajax({
+				type: 'GET',
+				url:'http://127.0.0.1:9000/miniManagementSystem/serverjson2.php?number=' + $('#keyword').val(),
+				dataType: 'json',
+				// jsonp: 'callback',	
+				success(data) {
+					if(data.success) {
+						$('#searchResult').html(data.msg);	
+					}else {
+						$('#searchResult').html( "出现错误:" + data.msg);
+										  
+					}
+				},
+				error(jqXHR) {
+					alert('出现错误' + jqXHR.status)
+				}
+			});
+		});
+	});
+	/**
+	*@save staff method: 'POST'
+	*/
+	$(document).ready(function() {
+		$('#save').click(function() {
+			$.ajax({
+				type: 'POST',
+				url:'http://127.0.0.1:9000/miniManagementSystem/serverjson2.php',
+				dataType: 'json',
+				data: {
+					name: $('#staffName').val(),
+					number: $('#staffNumber').val(),
+					job: $('#staffJob').val(),
+					sex: $('#staffSex').val()
+				},
+				success(data) {
+					if(data.success) {
+						$('#createResult').html(data.msg);	
+					}else {
+						$('#createResult').html( "出现错误:" + data.msg);
+										  
+					}
+				},
+				error(jqXHR) {
+					alert('出现错误' + jqXHR.status)
+				}
+			});
+		});
+	});
+</script>
+
+</html>

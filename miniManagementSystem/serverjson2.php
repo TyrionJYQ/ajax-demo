@@ -1,6 +1,7 @@
 <?php
 //设置页面内容是html编码格式是utf-8
 //header("Content-Type: text/plain;charset=utf-8"); 
+//XHR2 添加头信息进行跨域
 header('Access-Control-Allow-Origin:*');
 header('Access-Control-Allow-Methods:POST,GET');
 header('Access-Control-Allow-Credentials:true'); 
