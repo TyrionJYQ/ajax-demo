@@ -6,4 +6,6 @@ check staff, input the staff number(101,102,103)ajax method use 'GET'; and you w
 
 register staff, input all the message needed,ajax method ues 'POST';
 
+1
+
 

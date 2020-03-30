@@ -1,0 +1,21 @@
+{
+  "name": "ajax-demo",
+  "version": "1.0.0",
+  "description": "<%=description%>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": "<%=private%>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TyrionJYQ/ajax-demo.git"
+  },
+  "keywords": [],
+  "autor": "<%=author%>",
+  "bugs": {
+    "url": "https://github.com/TyrionJYQ/ajax-demo/issues"
+  },
+  "homepage": "https://github.com/TyrionJYQ/ajax-demo#readme",
+  "license": "<%=license%>"
+}
