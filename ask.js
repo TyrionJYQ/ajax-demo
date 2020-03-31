@@ -7,7 +7,7 @@ module.exports = [
 {
 	type: 'input',
 	name: 'author',
-	message: 'author?'
+	message: 'author1?'
 },
 {
 	type: 'input',
@@ -16,7 +16,7 @@ module.exports = [
 },
 {
 	type: 'input',
-	name: 'licence',
+	name: 'license',
 	message: 'licence?'
 }
 
