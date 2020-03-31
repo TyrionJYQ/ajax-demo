@@ -17,7 +17,7 @@ module.exports = [
 {
 	type: 'input',
 	name: 'license',
-	message: 'licence?'
+	message: 'license?'
 }
 
 
