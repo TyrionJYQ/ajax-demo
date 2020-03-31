@@ -11,7 +11,7 @@ module.exports = [
 },
 {
 	type: 'input',
-	name: 'description',
+	name: 'description ',
 	message: 'description?'
 },
 {
