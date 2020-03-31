@@ -12,7 +12,7 @@ module.exports = [
 {
 	type: 'input',
 	name: 'description',
-	message: 'description？?'
+	message: 'description？1?'
 },
 {
 	type: 'input',
